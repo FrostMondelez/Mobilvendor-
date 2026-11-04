@@ -1,5 +1,5 @@
 {
-  "ruleSetName": "ventas",
+  "ruleSetName": "Ventas",
   "fileExtension": "csv",
   "delimiter": "|",
   "hasHeader": false,
