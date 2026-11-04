@@ -239,8 +239,8 @@
       "name": "Descripción del Combo",
       "required": true,
       "unique": false,
-      "regex": "^(?:0|[A-Za-z0-9ÁÉÍÓÚÜÑáéíóúüñ][A-Za-z0-9ÁÉÍÓÚÜÑáéíóúüñ ._/-]{0,24})$",
-      "description": "Descripción del combo obligatoria según la estructura observada. Se permite 0 para registros sin combo o una descripción alfanumérica de hasta 25 caracteres."
+      "regex": "^(?:0|[A-Za-z0-9ÁÉÍÓÚÜÑáéíóúüñ][A-Za-z0-9ÁÉÍÓÚÜÑáéíóúüñ ._/-]{0,30})$",
+      "description": "Descripción del combo obligatoria según la estructura observada. Se permite 0 para registros sin combo o una descripción alfanumérica de hasta 31 caracteres."
     },
     {
       "name": "REF4",
