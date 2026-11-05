@@ -113,8 +113,8 @@
       "name": "CantidadUnidadMinima",
       "required": true,
       "unique": false,
-      "regex": "^[0-9]{1,5}$",
-      "description": "Cantidad en unidad mínima obligatoria. Debe contener entre 1 y 5 dígitos numéricos enteros no negativos."
+      "regex": "^-?[0-9]+(\\.[0-9]+)?$",
+      "description": "Cantidad en unidad máxima obligatoria. Se permiten números positivos, negativos, enteros y decimales."
     },
     {
       "name": "TipoUnidadMinima",
@@ -127,8 +127,8 @@
       "name": "CantidadUnidadMaxima",
       "required": true,
       "unique": false,
-      "regex": "^(?:[0-9]+(?:\\.[0-9]+)?|[0-9]+(?:\\.[0-9]+)?[Ee][+-]?[0-9]+)$",
-      "description": "Cantidad en unidad máxima obligatoria. Se permiten valores numéricos enteros, decimales con punto y notación científica, conforme a los datos encontrados."
+      "regex": "^-?[0-9]+(\\.[0-9]+)?$",
+      "description": "Cantidad en unidad máxima obligatoria. Se permiten números positivos, negativos, enteros y decimales."
     },
     {
       "name": "TipoUnidadMaxima",
