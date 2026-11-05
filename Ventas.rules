@@ -211,8 +211,8 @@
       "name": "FechaProceso",
       "required": true,
       "unique": false,
-      "regex": "^[0-9]{5}\\.[0-9]+$",
-      "description": "Fecha de proceso obligatoria. Debe contener un serial de fecha Excel de 5 dígitos y una fracción decimal correspondiente a la hora."
+      "regex": "^(0[1-9]|[12][0-9]|3[01])/(0[1-9]|1[0-2])/[0-9]{4} ([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]$",
+      "description": "Fecha de proceso obligatoria. Debe tener el formato DD/MM/YYYY HH:mm:ss."
     },
     {
       "name": "CanalVenta",
