@@ -36,8 +36,8 @@
       "name": "FechaDocumento",
       "required": true,
       "unique": false,
-      "regex": "^[0-9]{5}$",
-      "description": "Fecha de documento obligatoria. El archivo analizado utiliza números seriales de fecha de Excel de 5 dígitos. La expresión regular valida el formato, no la validez calendario."
+      "regex": "^(0[1-9]|[12][0-9]|3[01])/(0[1-9]|1[0-2])/[0-9]{4}$",
+      "description": "Fecha de documento obligatoria. Debe tener el formato DD/MM/YYYY."
     },
     {
       "name": "MotivoNC",
