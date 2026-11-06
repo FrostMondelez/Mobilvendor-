@@ -1,0 +1,295 @@
+{
+  "ruleSetName": "Ventas",
+  "fileExtension": "csv",
+  "delimiter": "|",
+  "hasHeader": false,
+  "fields": [
+    {
+      "name": "CodigoProveedor",
+      "required": true,
+      "unique": false,
+      "regex": "^[0-9]{5}$",
+      "description": "Código de proveedor obligatorio. Debe contener exactamente 5 dígitos numéricos, sin letras, espacios ni caracteres especiales."
+    },
+    {
+      "name": "CodigoDistribuidor",
+      "required": true,
+      "unique": false,
+      "regex": "^[0-9]{9}$",
+      "description": "Código de distribuidor obligatorio. Debe contener exactamente 9 dígitos numéricos."
+    },
+    {
+      "name": "TipoDocumento",
+      "required": true,
+      "unique": false,
+      "regex": "^(FA|NC)$",
+      "description": "Tipo de documento inválido. Los valores permitidos son FA y NC."
+    },
+    {
+      "name": "NroDocumento",
+      "required": true,
+      "unique": false,
+      "regex": "^[A-Za-z0-9-]{11,20}$",
+      "description": "Número de documento obligatorio. Debe contener entre 11 y 20 caracteres alfanuméricos o guiones. Puede repetirse entre líneas de un mismo documento."
+    },
+    {
+      "name": "FechaDocumento",
+      "required": true,
+      "unique": false,
+      "regex": "^\\d{4}-\\d{2}-\\d{2}$",
+      "description": "Fecha de documento obligatoria. Debe tener el formato YYYY-MM-DD."
+    },
+    {
+      "name": "MotivoNC",
+      "required": false,
+      "unique": false,
+      "regex": "^(DEVOLUCION)?$",
+      "description": "Motivo de nota crédito. Se permite DEVOLUCION o vacío. Debe informarse para documentos NC mediante una validación condicional adicional."
+    },
+    {
+      "name": "Origen",
+      "required": true,
+      "unique": false,
+      "regex": "^(APP|GNR|VTX|YAL)$",
+      "description": "Origen obligatorio. Los valores identificados en el archivo son APP, GNR, VTX y YAL."
+    },
+    {
+      "name": "CodigoCliente",
+      "required": true,
+      "unique": false,
+      "regex": "^[0-9]{7}$",
+      "description": "Código de cliente obligatorio. Debe contener exactamente 7 dígitos numéricos."
+    },
+    {
+      "name": "CanalCliente",
+      "required": true,
+      "unique": false,
+      "regex": "^[0-9]{3}$",
+      "description": "Canal de cliente obligatorio. Debe contener 3 dígitos numéricos. El valor observado es 999."
+    },
+    {
+      "name": "TipoNegocio",
+      "required": true,
+      "unique": false,
+      "regex": "^[0-9]{1,2}$",
+      "description": "Tipo de negocio obligatorio. Debe contener entre 1 y 2 dígitos numéricos."
+    },
+    {
+      "name": "CodigoVendedor",
+      "required": true,
+      "unique": false,
+      "regex": "^M[1-8]$",
+      "description": "Código de vendedor obligatorio. Se permite la letra M seguida de un dígito del 1 al 8."
+    },
+    {
+      "name": "CanalVendedor",
+      "required": true,
+      "unique": false,
+      "regex": "^[0-9]{3}$",
+      "description": "Canal del vendedor obligatorio. Debe contener 3 dígitos numéricos. El valor observado es 999."
+    },
+    {
+      "name": "CRutaLogica",
+      "required": false,
+      "unique": false,
+      "regex": "^(M[1-8])?$",
+      "description": "Ruta lógica opcional. Si se informa, debe contener la letra M seguida de un dígito del 1 al 8."
+    },
+    {
+      "name": "NumeroItem",
+      "required": true,
+      "unique": false,
+      "regex": "^[1-9][0-9]?$",
+      "description": "Número de ítem obligatorio. Debe ser un entero positivo de 1 o 2 dígitos. La unicidad por documento requiere validación compuesta."
+    },
+    {
+      "name": "CodigoProducto",
+      "required": true,
+      "unique": false,
+      "regex": "^[A-Za-z0-9][A-Za-z0-9 ._/-]{7,24}$",
+      "description": "Código o descripción de producto obligatorio. Se permiten letras, números, espacios, puntos, guiones, barras y guiones bajos. Longitud entre 8 y 25 caracteres."
+    },
+    {
+      "name": "CantidadUnidadMinima",
+      "required": true,
+      "unique": false,
+      "regex": "^-?[0-9]+(\\.[0-9]+)?$",
+      "description": "Cantidad en unidad máxima obligatoria. Se permiten números positivos, negativos, enteros y decimales."
+    },
+    {
+      "name": "TipoUnidadMinima",
+      "required": true,
+      "unique": false,
+      "regex": "^(UNI|PK)$",
+      "description": "Tipo de unidad mínima obligatorio. Los valores permitidos según el archivo son UNI y PK."
+    },
+    {
+      "name": "CantidadUnidadMaxima",
+      "required": true,
+      "unique": false,
+      "regex": "^-?[0-9]+(\\.[0-9]+)?$",
+      "description": "Cantidad en unidad máxima obligatoria. Se permiten números positivos, negativos, enteros y decimales."
+    },
+    {
+      "name": "TipoUnidadMaxima",
+      "required": true,
+      "unique": false,
+      "regex": "^(CAJ|UNI|PK)$",
+      "description": "Tipo de unidad máxima obligatorio. Los valores permitidos son CAJ, UNI y PK."
+    },
+    {
+      "name": "Moneda",
+      "required": true,
+      "unique": false,
+      "regex": "^USD$",
+      "description": "Moneda obligatoria. El único código identificado en el archivo es USD."
+    },
+    {
+      "name": "ImporteNetoSinImpuesto",
+      "required": true,
+      "unique": false,
+      "regex": "^-?[0-9]+(?:\\.[0-9]+)?$",
+      "description": "Importe neto sin impuesto obligatorio. Debe ser numérico entero o decimal con punto. Se admiten valores negativos para no excluir ajustes o notas crédito."
+    },
+    {
+      "name": "ImporteNetoConImpuesto",
+      "required": true,
+      "unique": false,
+      "regex": "^-?[0-9]+(?:\\.[0-9]+)?$",
+      "description": "Importe neto con impuesto obligatorio. Debe ser numérico entero o decimal con punto. Se admiten valores negativos."
+    },
+    {
+      "name": "Descuento",
+      "required": true,
+      "unique": false,
+      "regex": "^-?(?:[0-9]+(?:\\.[0-9]+)?|[0-9]+(?:\\.[0-9]+)?[Ee][+-]?[0-9]+)$",
+      "description": "Descuento obligatorio. Debe ser numérico, permitiendo enteros, decimales y notación científica. Se permite cero."
+    },
+    {
+      "name": "TipoVenta",
+      "required": true,
+      "unique": false,
+      "regex": "^(P|B|M)$",
+      "description": "Tipo de venta obligatorio. Los valores permitidos según el archivo son P, B y M."
+    },
+    {
+      "name": "CodCombo",
+      "required": false,
+      "unique": false,
+      "regex": "^(?:[Mm][Dd][Ll][Zz]-combo-[0-9]{3})?$",
+      "description": "Código de combo opcional. Si se informa, debe seguir el patrón Mdlz-combo- seguido de 3 dígitos."
+    },
+    {
+      "name": "CodPromocion",
+      "required": false,
+      "unique": false,
+      "regex": "^(?:MDLZ-PRM-[0-9]{3})?$",
+      "description": "Código de promoción opcional. Si se informa, debe seguir el patrón MDLZ-PRM- seguido de 3 dígitos."
+    },
+    {
+      "name": "TipoDocumentoReferencia",
+      "required": false,
+      "unique": false,
+      "regex": "^(FA)?$",
+      "description": "Tipo de documento de referencia opcional. El valor identificado es FA. Para notas crédito debe validarse su obligatoriedad de manera condicional."
+    },
+    {
+      "name": "NroDocumentoReferencia",
+      "required": false,
+      "unique": false,
+      "regex": "^(?:[A-Za-z0-9-]{11,20})?$",
+      "description": "Número de documento de referencia opcional. Si se informa, debe contener entre 11 y 20 caracteres alfanuméricos o guiones."
+    },
+    {
+      "name": "FechaDocumentoReferencia",
+      "required": true,
+      "unique": false,
+      "regex": "^\\d{4}-\\d{2}-\\d{2}$",
+      "description": "Fecha de documento obligatoria. Debe tener el formato YYYY-MM-DD."
+    },
+    {
+      "name": "FechaProceso",
+      "required": true,
+      "unique": false,
+      "regex": "^\\d{4}-\\d{2}-\\d{2} \\d{2}:\\d{2}:\\d{2}$",
+      "description": "Fecha de proceso obligatoria. Debe tener el formato YYYY-MM-DD HH:mm:ss."
+    },
+    {
+      "name": "CanalVenta",
+      "required": true,
+      "unique": false,
+      "regex": "^(APP|GNR|VTX|YAL)$",
+      "description": "Canal de venta obligatorio. Los valores identificados son APP, GNR, VTX y YAL."
+    },
+    {
+      "name": "Código Almacen",
+      "required": false,
+      "unique": false,
+      "regex": "^$",
+      "description": "Código de almacén opcional. Todos los registros analizados presentan este campo vacío. La regla actual solo acepta vacío."
+    },
+    {
+      "name": "Composición del Combo ",
+      "required": true,
+      "unique": false,
+      "regex": "^[0-9]{1,3}$",
+      "description": "Composición del combo obligatoria según el archivo. Debe contener entre 1 y 3 dígitos numéricos. Se permite cero cuando no corresponde a un combo."
+    },
+    {
+      "name": "Descripción del Combo",
+      "required": true,
+      "unique": false,
+      "regex": "^[A-Za-z0-9ÁÉÍÓÚÜÑáéíóúüñ +._/-]*$",
+      "description": "Descripción del combo opcional. Permite letras, números, espacios y caracteres especiales como +, punto, guion y barra." o una descripción alfanumérica de hasta 31 caracteres."
+    },
+    {
+      "name": "REF4",
+      "required": false,
+      "unique": false,
+      "regex": "^$",
+      "description": "Campo de referencia opcional. Se encontró vacío en todos los registros analizados."
+    },
+    {
+      "name": "REF5",
+      "required": false,
+      "unique": false,
+      "regex": "^$",
+      "description": "Campo de referencia opcional. Se encontró vacío en todos los registros analizados."
+    },
+    {
+      "name": "REF6",
+      "required": false,
+      "unique": false,
+      "regex": "^$",
+      "description": "Campo de referencia opcional. Se encontró vacío en todos los registros analizados."
+    },
+    {
+      "name": "REF7",
+      "required": false,
+      "unique": false,
+      "regex": "^$",
+      "description": "Campo de referencia opcional. Se encontró vacío en todos los registros analizados."
+    },
+    {
+      "name": "REF8",
+      "required": false,
+      "unique": false,
+      "regex": "^$",
+      "description": "Campo de referencia opcional. Se encontró vacío en todos los registros analizados."
+    },
+    {
+      "name": "REF9",
+      "required": false,
+      "unique": false,
+      "regex": "^$",
+      "description": "Campo de referencia opcional. Se encontró vacío en todos los registros analizados."
+    },
+    {
+      "name": "REF10",
+      "required": false,
+      "unique": false,
+      "regex": "^$",
+      "description": "Campo de referencia opcional. Se encontró vacío en todos los registros analizados."
+    }
+  ]
+}
