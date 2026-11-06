@@ -1,0 +1,169 @@
+{
+  "ruleSetName": "Stock",
+  "fileExtension": "csv",
+  "delimiter": "|",
+  "hasHeader": true,
+  "fields": [
+    {
+      "name": "CodigoProveedor",
+      "required": true,
+      "unique": false,
+      "regex": "^[0-9]{11}$",
+      "description": "Código de proveedor obligatorio. Debe contener exactamente 11 dígitos numéricos (RUC), sin letras, espacios ni caracteres especiales."
+    },
+    {
+      "name": "CodigoDistribuidor",
+      "required": true,
+      "unique": false,
+      "regex": "^[0-9]{9}$",
+      "description": "Código de distribuidor obligatorio. Debe contener exactamente 9 dígitos numéricos. Misma regla que en Ventas."
+    },
+    {
+      "name": "CodigoAlmacen",
+      "required": true,
+      "unique": false,
+      "regex": "^[0-9]{1,3}$",
+      "description": "Código de almacén obligatorio. Debe contener entre 1 y 3 dígitos numéricos."
+    },
+    {
+      "name": "NombreAlmacen",
+      "required": true,
+      "unique": false,
+      "regex": "^[A-Za-z0-9ÁÉÍÓÚÜÑáéíóúüñ][A-Za-z0-9ÁÉÍÓÚÜÑáéíóúüñ ._/-]{0,49}$",
+      "description": "Nombre de almacén obligatorio. Permite letras, números, espacios, puntos, guiones y barras. Longitud entre 1 y 50 caracteres."
+    },
+    {
+      "name": "CodigoProducto",
+      "required": true,
+      "unique": false,
+      "regex": "^[A-Za-z0-9]{1,25}$",
+      "description": "Código de producto obligatorio. Alfanumérico sin espacios, entre 1 y 25 caracteres (ej. 52, 0000T359, JM000154, PHMON043). La unicidad por proveedor, distribuidor y almacén requiere validación compuesta."
+    },
+    {
+      "name": "Lote",
+      "required": false,
+      "unique": false,
+      "regex": "^(?:[A-Za-z0-9-]{1,20})?$",
+      "description": "Lote opcional. Si se informa, debe contener entre 1 y 20 caracteres alfanuméricos o guiones."
+    },
+    {
+      "name": "FechaVencimiento",
+      "required": true,
+      "unique": false,
+      "regex": "^\\d{4}-\\d{2}-\\d{2}(?: \\d{2}:\\d{2}:\\d{2})?$",
+      "description": "Fecha de vencimiento obligatoria. Formato YYYY-MM-DD, con hora HH:mm:ss opcional. El valor 1900-01-01 se usa como fecha por defecto cuando el producto no maneja vencimiento."
+    },
+    {
+      "name": "StockEnUnidadMinima",
+      "required": true,
+      "unique": false,
+      "regex": "^-?[0-9]+(?:\\.[0-9]+)?$",
+      "description": "Stock en unidad mínima obligatorio. Debe ser numérico entero o decimal con punto. Se admiten valores negativos para no excluir ajustes. Se permite cero."
+    },
+    {
+      "name": "UnidadDeMedidaMinima",
+      "required": true,
+      "unique": false,
+      "regex": "^(UNI|UND|PK|PAQ|BOL|BL|DIS)$",
+      "description": "Unidad de medida mínima obligatoria. Los valores permitidos son UNI y PK (tomados de Ventas) más UND, PAQ, BOL, BL y DIS identificados en el archivo de stock."
+    },
+    {
+      "name": "StockEnUnidadesMaximas",
+      "required": true,
+      "unique": false,
+      "regex": "^-?[0-9]+(?:\\.[0-9]+)?$",
+      "description": "Stock en unidades máximas obligatorio. Debe ser numérico entero o decimal con punto. Se admiten valores negativos. Se permite cero."
+    },
+    {
+      "name": "UnidadDeMedidaMaxima",
+      "required": true,
+      "unique": false,
+      "regex": "^(CAJ|UNI|UND|PK)$",
+      "description": "Unidad de medida máxima obligatoria. Los valores permitidos son CAJ, UNI y PK (tomados de Ventas) más UND identificado en el archivo de stock."
+    },
+    {
+      "name": "ValorStock",
+      "required": true,
+      "unique": false,
+      "regex": "^-?[0-9]+(?:\\.[0-9]+)?$",
+      "description": "Valor del stock obligatorio. Debe ser numérico entero o decimal con punto. Se admiten valores negativos. Se permite cero."
+    },
+    {
+      "name": "FechaProceso",
+      "required": true,
+      "unique": false,
+      "regex": "^\\d{4}-\\d{2}-\\d{2} \\d{2}:\\d{2}:\\d{2}$",
+      "description": "Fecha de proceso obligatoria. Debe tener el formato YYYY-MM-DD HH:mm:ss. Misma regla que en Ventas."
+    },
+    {
+      "name": "IngresosEnUnidadDeConsumo",
+      "required": true,
+      "unique": false,
+      "regex": "^-?[0-9]+(?:\\.[0-9]+)?$",
+      "description": "Ingresos en unidad de consumo obligatorio. Debe ser numérico entero o decimal con punto. Se admiten valores negativos. Se permite cero."
+    },
+    {
+      "name": "ValorIngresos",
+      "required": true,
+      "unique": false,
+      "regex": "^-?[0-9]+(?:\\.[0-9]+)?$",
+      "description": "Valor de ingresos obligatorio. Debe ser numérico entero o decimal con punto. Se admiten valores negativos. Se permite cero."
+    },
+    {
+      "name": "VentasEnUnidadDeConsumo",
+      "required": true,
+      "unique": false,
+      "regex": "^-?[0-9]+(?:\\.[0-9]+)?$",
+      "description": "Ventas en unidad de consumo obligatorio. Debe ser numérico entero o decimal con punto. Se admiten valores negativos. Se permite cero."
+    },
+    {
+      "name": "ValorVentas",
+      "required": true,
+      "unique": false,
+      "regex": "^-?[0-9]+(?:\\.[0-9]+)?$",
+      "description": "Valor de ventas obligatorio. Debe ser numérico entero o decimal con punto. Se admiten valores negativos. Se permite cero."
+    },
+    {
+      "name": "OtrosEnUnidadDeConsumo",
+      "required": true,
+      "unique": false,
+      "regex": "^-?[0-9]+(?:\\.[0-9]+)?$",
+      "description": "Otros movimientos en unidad de consumo obligatorio. Debe ser numérico entero o decimal con punto. Se admiten valores negativos. Se permite cero."
+    },
+    {
+      "name": "ValorOtros",
+      "required": true,
+      "unique": false,
+      "regex": "^-?[0-9]+(?:\\.[0-9]+)?$",
+      "description": "Valor de otros movimientos obligatorio. Debe ser numérico entero o decimal con punto. Se admiten valores negativos. Se permite cero."
+    },
+    {
+      "name": "Periodo",
+      "required": true,
+      "unique": false,
+      "regex": "^(?:0?[1-9]|1[0-2])$",
+      "description": "Periodo obligatorio. Corresponde al mes del corte: número entre 1 y 12, con o sin cero a la izquierda. El valor observado es 11."
+    },
+    {
+      "name": "REF1",
+      "required": false,
+      "unique": false,
+      "regex": "^(?:[0-9]{1,3})?$",
+      "description": "Campo de referencia opcional. Si se informa, debe contener entre 1 y 3 dígitos numéricos. El valor observado es 8 en todos los registros."
+    },
+    {
+      "name": "REF2",
+      "required": false,
+      "unique": false,
+      "regex": "^$",
+      "description": "Campo de referencia opcional. Se encontró vacío en todos los registros analizados."
+    },
+    {
+      "name": "REF3",
+      "required": false,
+      "unique": false,
+      "regex": "^$",
+      "description": "Campo de referencia opcional. Se encontró vacío en todos los registros analizados."
+    }
+  ]
+}
